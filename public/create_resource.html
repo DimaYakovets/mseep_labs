@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Завод</title>
+        <link rel="stylesheet" href="assets/index.css">
+    </head>
+    <body>
+        <div class="wrapper">
+              <header class="header">
+                     <div class="header-text">
+                         ЗАВОД
+                     </div>
+         
+                     <div id="header-list-panel" class="header-list">
+         
+                     </div>
+         
+                     <div class="header-user">
+                         <div>
+                             <span>Вітаю, <span id="header-user-name"></span></span>
+                         </div>
+                         <button id="log-out-btn">Log out</button>
+                     </div>
+                 </header>
+
+            <form class="form" id="create_resource">
+                <h2>Створити ресурс</h2>
+                <div class="form-content create-resource">
+                    <input name="name" class="__input form-content-name" placeholder="Введіть назву товару"
+                           type="text"/>
+                    <input name="buy" class="__input form-content-buy" placeholder="Ціна куплівлі"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+                    <input name="sell" class="__input form-content-sell" placeholder="Ціна продажу"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+
+                    <input name="y_min" class="__input form-content-sell" placeholder="Y min"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+                    <input name="y_max" class="__input form-content-sell" placeholder="Y max"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+
+                    <input name="v_min" class="__input form-content-sell" placeholder="V min"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+                    <input name="v_max" class="__input form-content-sell" placeholder="V max"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+
+                    <input name="w_min" class="__input form-content-sell" placeholder="W min"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+                    <input name="w_max" class="__input form-content-sell" placeholder="W max"
+                           type="text" pattern="[0-9]+([.,][0-9]+)?"/>
+                </div>
+                <button type="submit" class="__button form-content-button">Створити ресурс</button>
+            </form>
+        </div>
+    </body>
+    <script src="assets/index.js"></script>
+</html>

@@ -1,0 +1,344 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.big-label {
+    font-size: 50px;
+}
+
+.body {
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    grid-template-columns: 1fr;
+
+    height: 100vh;
+    width: 100vw;
+
+    gap: 20px;
+}
+
+.header {
+    grid-row: 1;
+
+    height: 40px;
+    display: grid;
+    grid-template-columns: 100px 1fr 250px;
+    grid-template-rows: 40px;
+
+    align-items: center;
+    justify-content: center;
+    background: saddlebrown;
+    flex-direction: column;
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+
+}
+
+.header-text {
+    grid-column: 1;
+    padding: 10px;
+
+    font-size: 30px;
+}
+
+.header-list {
+    display: flex;
+    gap: 16px;
+    padding: 10px;
+    justify-self: center;
+    align-self: center;
+
+    grid-column: 2;
+}
+
+.header-list a {
+    color: white;
+    border: solid 1px white;
+    background: saddlebrown;
+    color: white;
+    padding: 2px 4px;
+    border-radius: 2px;
+
+    text-decoration: none;
+}
+
+.header-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    grid-column: 3;
+    padding: 10px;
+
+    button {
+        border: solid 1px white;
+        background: saddlebrown;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 2px;
+
+        cursor: pointer;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    grid-row: 2;
+
+    gap:16px;
+
+    align-self: center;
+    justify-self: center;
+}
+
+.users-content {
+    flex-direction: row;
+}
+
+.product-input {
+    width: 80px;
+}
+
+
+.wrapper {
+    min-height: calc(100vh - 150px);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.results_table {
+    color: white;
+    font-weight: 500;
+}
+
+.delete-button {
+    margin-left: 20px;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    width: 85px;
+    min-width: 85px;
+}
+
+.white-text {
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    border: 2px solid transparent;
+    padding: 4px 8px;
+}
+
+.__input {
+    outline: none;
+    height: 32px;
+    border: 2px solid #3b3b3b;
+    border-radius: 4px;
+    padding: 4px 8px;
+    color: #3b3b3b;
+    font-size: 14px;
+    background: white;
+}
+
+.__input:disabled {
+    opacity: 0.6;
+}
+
+.__button {
+    padding: 8px 16px;
+    border: 2px solid #3b3b3b;
+    color: #3b3b3b;
+    border-radius: 4px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.login-form {
+    gap: 16px;
+
+    color: white;
+
+    padding: 20px;
+}
+
+.login-form-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: start;
+
+    label {
+        font-size: 18px;
+    }
+
+    input, select {
+        width: 300px;
+
+        font-size: 18px;
+        color: black;
+        font-weight: 500;
+
+        padding: 2px 4px;
+    }        
+}
+
+#userForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    
+}
+
+table, th, td {
+    border: 1px solid white;
+}
+
+table {
+    button {
+        border: solid 1px white;
+        background: saddlebrown;
+        color: white;
+        padding: 2px 4px;
+        border-radius: 2px;
+
+        cursor: pointer;
+    }
+
+}
+
+.user-form-item {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+
+    label {
+        font-size: 14px;
+    }
+
+    input, select {
+        width: 300px;
+
+        font-size: 14px;
+        color: black;
+        font-weight: 500;
+
+        padding: 2px 2px;
+    }        
+}
+
+.form {
+    padding: 24px;
+    background: saddlebrown;
+    width: 75%;
+    border-radius: 8px;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section {
+    color: white;
+
+    table {
+        border: white;
+    }
+
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background: saddlebrown;
+    width: 700px;
+    border-radius: 8px;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 24px;
+}
+
+.form-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    padding: 24px 0;
+}
+
+.balance-item,
+.resource-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.__placeholder {
+    font-size: 18px;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+
+.balance-item-text,
+.resource-item-text {
+    width: 100%;
+    font-size: 24px;
+    color: white;
+    font-weight: 500;
+    margin-right: 24px;
+}
+
+.balance-input,
+.resource-input {
+    width: 85px;
+    min-width: 85px;
+}
+
+.__checkbox {
+    margin-right: 16px;
+}
+
+.balance,
+.resource {
+    display: flex;
+    flex-direction: column;
+}
+
+.create-resource .form-content-name {
+    width: 50%;
+}
+
+.create-resource .form-content-buy {
+    width: 20%;
+}
+
+.create-resource .form-content-sell {
+    width: 20%;
+}
+
+.create-product-input {
+    width: 100%;
+}

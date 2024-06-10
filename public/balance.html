@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Завод</title>
+    <link rel="stylesheet" href="assets/index.css">
+</head>
+
+<body>
+    <div class="body">
+        <header class="header">
+            <div class="header-text">
+                ЗАВОД
+            </div>
+
+            <div id="header-list-panel" class="header-list">
+
+            </div>
+
+            <div class="header-user">
+                <div>
+                    <span>Вітаю, <span id="header-user-name"></span></span>
+                </div>
+                <button id="log-out-btn">Log out</button>
+            </div>
+        </header>
+
+        <form class="content form" id="balance">
+            <h2>Залишки ресурсів</h2>
+
+            <div style="display: flex; width: 100%">
+                <div class="balance-item-text">Назва товара</div>
+                <div class=" balance-input white-text">Купівля</div>
+                <div class=" balance-input white-text">Продаж</div>
+                <div class=" balance-input white-text">Залишок</div>
+                <div class=" balance-input white-text">Y min</div>
+                <div class=" balance-input white-text">Y max</div>
+                <div class=" balance-input white-text">V min</div>
+                <div class=" balance-input white-text">V max</div>
+                <div class=" balance-input white-text">W min</div>
+                <div class=" balance-input white-text">W max</div>
+                <div class="delete-button">Дія</div>
+            </div>
+            <div class="form-content balance" id="balance_table">
+
+            </div>
+            <button type="submit" class="__button form-content-button">Зберегти</button>
+        </form>
+    </div>
+</body>
+<script src="assets/index.js"></script>
+
+</html>

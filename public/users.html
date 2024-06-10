@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завод</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        th,
+        td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+
+    <link rel="stylesheet" href="assets/index.css">
+</head>
+
+<body>
+    <div class="body">
+        <header class="header">
+            <div class="header-text">
+                ЗАВОД
+            </div>
+
+            <div id="header-list-panel" class="header-list">
+
+            </div>
+
+            <div class="header-user">
+                <div>
+                    <span>Вітаю, <span id="header-user-name"></span></span>
+                </div>
+                <button id="log-out-btn">Log out</button>
+            </div>
+        </header>
+        <div class="content users-content">
+            <div class="section">
+
+
+
+                <h2>Users Table</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Password</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="userTableBody">
+                    </tbody>
+                </table>
+
+            </div>
+
+            <div class="section">
+                <h2 id="formTitle">Add User</h2>
+                <form id="userForm">
+                    <input type="hidden" id="userId">
+                    <div class="user-form-item">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" required>
+                    </div>
+                    <div class="user-form-item">
+                        <label for="password">Password:</label>
+                        <input type="text" id="password" required>
+                    </div>
+                    <div class="user-form-item">
+
+                        <label for="role">Role:</label>
+                        <select id="role" required>
+                            <option value="admin">admin</option>
+                            <option value="manager">manager</option>
+                            <option value="storekeeper">storekeeper</option>
+                        </select>
+                    </div>
+                    <button type="submit" id="submitButton">Add User</button>
+                </form>
+
+            </div>
+
+            <script>
+                const apiUrl = '/api/model/users';
+
+                document.getElementById('userForm').addEventListener('submit', async function (event) {
+                    event.preventDefault();
+                    const id = document.getElementById('userId').value;
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    const role = document.getElementById('role').value;
+
+                    const user = { username, password, role };
+
+                    if (!id) {
+                        // Add new user
+                        await fetch(apiUrl, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(user)
+                        });
+                    } else {
+                        // Update existing user
+                        await fetch(`/api/model/users/${id}`, {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(user)
+                        });
+                    }
+
+                    document.getElementById('userForm').reset();
+                    document.getElementById('userId').value = '';
+                    document.getElementById('formTitle').innerText = 'Add User';
+                    document.getElementById('submitButton').innerText = 'Add User';
+                    fetchUsers();
+                });
+
+                async function fetchUsers() {
+                    const response = await fetch(apiUrl);
+                    const users = await response.json();
+                    renderTable(users);
+                }
+
+                function renderTable(users) {
+                    const tableBody = document.getElementById('userTableBody');
+                    tableBody.innerHTML = '';
+                    users.forEach(user => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                <td>${user.id}</td>
+                <td>${user.username}</td>
+                <td>${user.password}</td>
+                <td>${user.role}</td>
+                <td>
+                    <button onclick="editUser(${user.id})">Edit</button>
+                    <button onclick="deleteUser(${user.id})">Delete</button>
+                </td>
+            `;
+                        tableBody.appendChild(row);
+                    });
+                }
+
+                async function editUser(id) {
+                    const response = await fetch(`/api/model/users/${id}`);
+                    const user = await response.json();
+                    document.getElementById('userId').value = user.id;
+                    document.getElementById('username').value = user.username;
+                    document.getElementById('password').value = user.password;
+                    document.getElementById('role').value = user.role;
+                    document.getElementById('formTitle').innerText = 'Edit User';
+                    document.getElementById('submitButton').innerText = 'Update User';
+                }
+
+                async function deleteUser(id) {
+                    await fetch(`/api/model/users/${id}`, {
+                        method: 'DELETE'
+                    });
+                    fetchUsers();
+                }
+
+                fetchUsers();
+            </script>
+        </div>
+    </div>
+
+    <script src="/assets/index.js" type="module" defer></script>
+</body>
+
+</html>
